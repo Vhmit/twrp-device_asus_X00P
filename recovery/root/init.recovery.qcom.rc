@@ -38,12 +38,7 @@ on fs
     install_keyring
 
 on init
-    mkdir /system/bin
-    mkdir /system/etc
-    symlink /system/etc /etc
-    symlink /sbin/busybox /system/bin/sh
-    symlink /vendor/manifest.xml /system/manifest.xml
-
+    install_keyring
     start hwservicemanager
     setprop crypto.ready 1
 
@@ -81,13 +76,13 @@ service keystore /sbin/keystore /tmp/misc/keystore
     disabled
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service-qti
+service gatekeeper-1-0 /sbin/android.hardware.gatekeeper@1.0-service
     user root
     group root
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service-qti
+service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
     user root
     group root
     disabled

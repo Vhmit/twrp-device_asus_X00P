@@ -24,9 +24,15 @@ $(call inherit-product, vendor/omni/config/common.mk)
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Encryption
+# Decryption
 PRODUCT_PACKAGES += \
-    libcryptfs_hw
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
+# Crypto
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gatekeeper=msm8937 \
+    ro.hardware.keystore=msm8937
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := X00P

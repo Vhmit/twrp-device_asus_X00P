@@ -2,8 +2,8 @@
 /system_image    emmc              /dev/block/bootdevice/by-name/system
 /vendor          ext4              /dev/block/bootdevice/by-name/vendor     flags=wipeingui;display="Vendor"
 /vendor_image    emmc              /dev/block/bootdevice/by-name/vendor
-/data            ext4              /dev/block/bootdevice/by-name/userdata   flags=encryptable=footer
-/cache           ext4              /dev/block/bootdevice/by-name/cache
+/data            ext4              /dev/block/bootdevice/by-name/userdata   flags=fileencryption=ice:aes-256-cts,reservedsize=128M
+/cache           auto              /dev/block/bootdevice/by-name/cache
 /persist         ext4              /dev/block/bootdevice/by-name/persist    flags=backup=1;display="Persist"
 /persist_image   emmc              /dev/block/bootdevice/by-name/persist    flags=display="Persist Image";flashimg=1
 /boot            emmc              /dev/block/bootdevice/by-name/boot
